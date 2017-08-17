@@ -48,9 +48,9 @@ var Main = React.createClass({
         <div className="row">
 
           <div className="jumbotron">
-            <h2 className="text-center">Address Finder!</h2>
+            <h2 className="text-center">Article Finder!</h2>
             <p className="text-center">
-              <em>Enter a landmark to search for its exact address (ex: "Eiffel Tower").</em>
+              <em>Enter a term to search .</em>
             </p>
           </div>
 
@@ -62,7 +62,7 @@ var Main = React.createClass({
 
           <div className="col-md-6">
 
-            <Results address={this.state.results} />
+            <Results article={this.state.results} />
 
           </div>
 

@@ -7,12 +7,14 @@ var geocodeAPI = "35e5548c618555b1a43eb4759d26b260";
 // Helper Functions (in this case the only one is runQuery)
 var helpers = {
 
-  runQuery: function(location) {
+  runQuery: function(article) {
 
-    console.log(location);
+    console.log(article);
 
     // Figure out the geolocation
     var queryURL = "http://api.opencagedata.com/geocode/v1/json?query=" + location + "&pretty=1&key=" + geocodeAPI;
+
+    //var url = https://www.nytimes.com/?mcubz=3
 
     return axios.get(queryURL).then(function(response) {
 

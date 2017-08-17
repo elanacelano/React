@@ -12,8 +12,8 @@ var Results = React.createClass({
           <h3 className="panel-title text-center">Results</h3>
         </div>
         <div className="panel-body text-center">
-          <h1>Address:</h1>
-          <p>{this.props.address}</p>
+          <h1>Article</h1>
+          <p>{this.props.article}</p>
         </div>
       </div>
     );

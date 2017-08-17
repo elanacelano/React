@@ -37,7 +37,7 @@ var Form = React.createClass({
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <h4 className="">
-                <strong>Location</strong>
+                <strong>Article Result</strong>
               </h4>
 
               {/*
