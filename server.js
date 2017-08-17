@@ -85,6 +85,20 @@ app.post("/api", function(req, res) {
   });
 });
 
+app.delete("/api", function(req, res) {
+
+    Click.findAndDelete({
+      clickID: clickID
+    }, {
+      $set: {
+        clicks: clicks  
+      }
+    }, {
+      delete: true("Updated Articles");
+    }
+  }); 
+});
+
 // -------------------------------------------------
 
 // Starting our express server

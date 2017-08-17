@@ -2,8 +2,8 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
 
-// Include the main Parent Component
-var Parent = require("./components/Parent");
+// Include the main Result Component
+var Results = require("./components/children/Results");
 
 // This code here allows us to render our main component (in this case Parent)
-ReactDOM.render(<Parent />, document.getElementById("app"));
+ReactDOM.render(<Results />, document.getElementById("app"));

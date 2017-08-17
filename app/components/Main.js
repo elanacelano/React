@@ -50,7 +50,7 @@ var Main = React.createClass({
           <div className="jumbotron">
             <h2 className="text-center">Article Finder!</h2>
             <p className="text-center">
-              <em>Enter a term to search .</em>
+              <em>Enter a term to search</em>
             </p>
           </div>
 
