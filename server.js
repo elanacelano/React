@@ -93,9 +93,9 @@ app.delete("/api", function(req, res) {
       $set: {
         clicks: clicks  
       }
-    }, {
-      delete: true("Updated Articles");
-    }
+    // }, {
+    //   delete: true("Updated Articles");
+    // }
   }); 
 });
 
