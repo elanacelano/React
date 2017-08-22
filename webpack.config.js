@@ -1,3 +1,6 @@
+var webpack = require("webpack");
+var path = require("path");
+
 module.exports = {
 
   // This is the entry point or start of our react applicaton
@@ -17,7 +20,7 @@ module.exports = {
         // Webpack will only process files in our app folder. This avoids processing
         // node modules and server files unnecessarily
         include: /app/,
-        loader: "babel",
+        loaders: "babel",
         query: {
           // These are the specific transformations we'll be using.
           presets: ["react", "es2015"]

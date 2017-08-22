@@ -12,7 +12,8 @@ var Results = React.createClass({
           <h3 className="panel-title text-center">Results</h3>
         </div>
         <div className="panel-body text-center">
-          <h1>Article</h1>
+          <h1>New York Times</h1>
+          <h2>A Journey Through The Times</h2>      
           <p>{this.props.article}</p>
         </div>
       </div>

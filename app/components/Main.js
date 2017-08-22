@@ -2,11 +2,17 @@
 var React = require("react");
 
 // Here we include all of the sub-components
-var Form = require("./children/Form");
-var Results = require("./children/Results");
+var Form = require("./app/components/children/Form");
+var Results = require("./app/components/children/Results");
 
 // Helper Function
-var helpers = require("./utils/helpers.js");
+var helpers = require("./app/components/utils/helpers.js");
+
+//import styles from
+var styles = require('./app.css');
+
+// connection with MongoDB
+mongoose.connect('mongodb://localhost/myapp');
 
 // This is the main component.
 var Main = React.createClass({
@@ -48,30 +54,56 @@ var Main = React.createClass({
         <div className="row">
 
           <div className="jumbotron">
-            <h2 className="text-center">Article Finder!</h2>
-            <p className="text-center">
-              <em>Enter a term to search</em>
-            </p>
+          <h1>NY Times</h1>
+            <h2>a journey through the times</h2>
+            <a href="#/search"><button className="btn btn-default">Search</button></a>
+            </div>
+          <div clasName="row">
+            <div ClassName=" text-center">
+          </div> 
+          </div> 
+          <div className="container">
+                  {this.props.children}
+          </div>        
+          </div>
           </div>
 
-          <div className="col-md-6">
+//             <p className="text-center">
+//               <em>Enter a term to search</em>
+//             </p>
+//           </div>
 
-            <Form setTerm={this.setTerm} />
+//           <div className="col-md-6">
 
-          </div>
+//             <Form setTerm={this.setTerm} />
 
-          <div className="col-md-6">
+//           </div>
 
-            <Results article={this.state.results} />
+//           <div className="col-md-6">
 
-          </div>
+//             <Results article={this.state.results} />
 
-        </div>
+//           </div>
 
-      </div>
-    );
-  }
-});
+//         </div>
+
+//       </div>
+//     );
+//   }
+// });
 
 // Export the component back for use in other files
 module.exports = Main;
+
+
+
+
+
+
+
+
+
+
+
+
+
