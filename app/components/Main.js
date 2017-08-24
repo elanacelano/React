@@ -6,7 +6,7 @@ var Form = require("./app/components/children/Form");
 var Results = require("./app/components/children/Results");
 
 // Helper Function
-var helpers = require("./app/components/utils/helpers.js");
+var helpers = require("./app/utils/helpers.js");
 
 //import styles from
 var styles = require('./app.css');
@@ -50,24 +50,24 @@ var Main = React.createClass({
   render: function() {
     return (
       <div className="container">
-
         <div className="row">
-
           <div className="jumbotron">
-          <h1>NY Times</h1>
-            <h2>a journey through the times</h2>
+            <h1 className="text-center">NY Times</h1>
+              <h2 className="text-center">a journey through the times</h2>
             <a href="#/search"><button className="btn btn-default">Search</button></a>
             </div>
           <div clasName="row">
-            <div ClassName=" text-center">
-          </div> 
-          </div> 
+          <div ClassName=" text-center">
+        </div> 
+      </div> 
           <div className="container">
                   {this.props.children}
           </div>        
-          </div>
-          </div>
-
+        </div>
+      </div>
+    );
+  }
+);
 //             <p className="text-center">
 //               <em>Enter a term to search</em>
 //             </p>

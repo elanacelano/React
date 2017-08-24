@@ -4,6 +4,8 @@ var React = require("react");
 // Creating the Results component
 var Results = React.createClass({
 
+// var   
+
   // Here we describe this component's render method
   render: function() {
     return (
@@ -13,7 +15,7 @@ var Results = React.createClass({
         </div>
         <div className="panel-body text-center">
           <h1>New York Times</h1>
-          <h2>A Journey Through The Times</h2>      
+          <h1>A Journey Through The Times</h1>      
           <p>{this.props.article}</p>
         </div>
       </div>

@@ -4,8 +4,8 @@ var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 
-// Require Click schema
-var Click = require("./models/click");
+// Require Article schema
+var Article = require("./models/Articles");
 
 // Create a new express app
 var app = express();
@@ -24,7 +24,7 @@ app.use(express.static("public"));
 // -------------------------------------------------
 
 // MongoDB configuration (Change this URL to your own DB)
-mongoose.connect("mongodb://admin:codingrocks@ds023674.mlab.com:23674/heroku_5ql1blnl");
+mongoose.connect("mongodb://localhost:3000/NYTimesdbArticle");
 var db = mongoose.connection;
 
 db.on("error", function(err) {
@@ -38,60 +38,34 @@ db.once("open", function() {
 // -------------------------------------------------
 
 // Main "/" Route. This will redirect the user to our rendered React application
-app.get("/", function(req, res) {
-  res.sendFile(__dirname + "/public/index.html");
-});
+// app.get("/", function(req, res) {
+//   res.sendFile(__dirname + "/public/index.html");
+// });
 
-// This is the route we will send GET requests to retrieve our most recent click data.
-// We will call this route the moment our page gets rendered
-app.get("/api", function(req, res) {
+// This is the route we will send POST requests to save each Article.
+// We will call this route the moment the "Article" or "reset" button is pressed.
+app.post("/api", function(req, res) {
+  var newArticle = new Article(req.body);
+  console.log(req.body);on
 
-  // This GET request will search for the latest clickCount
-  Click.find({}).exec(function(err, doc) {
-
-    if (err) {
+  newArticle.save(function(err, doc) {
+    if(err){
       console.log(err);
     }
     else {
       res.send(doc);
     }
   });
-});
+});  
 
-// This is the route we will send POST requests to save each click.
-// We will call this route the moment the "click" or "reset" button is pressed.
-app.post("/api", function(req, res) {
-
-  var clickID = req.body.clickID;
-  var clicks = parseInt(req.body.clicks);
-
-  // Note how this route utilizes the findOneAndUpdate function to update the clickCount
-  // { upsert: true } is an optional object we can pass into the findOneAndUpdate method
-  // If included, Mongoose will create a new document matching the description if one is not found
-  Click.findOneAndUpdate({
-    clickID: clickID
-  }, {
-    $set: {
-      clicks: clicks
-    }
-  }, { upsert: true }).exec(function(err) {
-
-    if (err) {
-      console.log(err);
-    }
-    else {
-      res.send("Updated Click Count!");
-    }
-  });
-});
 
 app.delete("/api", function(req, res) {
 
-    Click.findAndDelete({
-      clickID: clickID
+  var Article = Article.findAndDelete({
+      ArticleID: ArticleID
     }, {
       $set: {
-        clicks: clicks  
+        Articles: Articles  
       }
     // }, {
     //   delete: true("Updated Articles");
@@ -99,6 +73,23 @@ app.delete("/api", function(req, res) {
   }); 
 });
 
+// This is the route we will send GET requests to retrieve our most recent Article data.
+// We will call this route the moment our page gets rendered
+app.get("*", function(req, res) {
+  res.sendFile(_dirname + "/public/index.html");
+});  
+
+  // This GET request will search for the latest ArticleCount
+//   Article.find({}).exec(function(err, doc) {
+
+//     if (err) {
+//       console.log(err);
+//     }
+//     else {
+//       res.send(doc);
+//     }
+//   });
+// });
 // -------------------------------------------------
 
 // Starting our express server
