@@ -4,7 +4,7 @@ var ReactDOM = require("react-dom");
 
 // Include the Main Component
 // var Main = require("./app/components/children/Main");
-var Main = React.createClass;
+var Main = React.createClass();
 
 // 
 

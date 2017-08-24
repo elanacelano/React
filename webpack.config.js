@@ -4,7 +4,7 @@ var path = require("path");
 module.exports = {
 
   // This is the entry point or start of our react applicaton
-  entry: "./app/app.js",
+  entry: "./app/App.js",
 
   // The plain compiled JavaScript will be output into this file
   output: {
@@ -20,7 +20,7 @@ module.exports = {
         // Webpack will only process files in our app folder. This avoids processing
         // node modules and server files unnecessarily
         include: /app/,
-        loaders: "babel",
+        loader: "babel",
         query: {
           // These are the specific transformations we'll be using.
           presets: ["react", "es2015"]

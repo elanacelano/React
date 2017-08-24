@@ -19,7 +19,7 @@
     "geocoder": "^0.2.2",
     "handlebars": "^4.0.10",
     "html-to-react": "^1.2.11",
-    "mongo": "^0.1.0",
+    "mongo": "file:node_modules/mongo",
     "mongoose": "^4.11.7",
     "morgan": "^1.8.2",
     "node": "^8.3.0",
