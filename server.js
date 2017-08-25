@@ -7,7 +7,7 @@ var mongoose = require("mongoose");
 // Require Article schema
 var Article = require("./models/Articles");
 
-var cheerio = require("cheerio")
+// var cheerio = require("cheerio")
 
 // Create a new express app
 var app = express();
@@ -40,14 +40,31 @@ db.once("open", function() {
 // -------------------------------------------------
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with request
-  console.log("Making a request to MSNBC");
+  console.log("Making a request to NYTimes");
 
-  request("http://www.msnbc.com/", function(error, response, html) {
-    // Then, we load that into cheerio and save it to $ for a shorthand selector
-    var $ = cheerio.load(html);
+  request.get({
+      // Built by LucyBot. www.lucybot.com
+        var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+            url += '?' + $.param({
+              'api-key': "096a8ab095c145d4be3a6697ee63e7ab",
+              'sort': "newest"
+      });
+          $.ajax({
+            url: url,
+            method: 'GET',
+      }).done(function(result) {
+        console.log(result);
+      }).fail(function(err) {
+        throw err;
+});
+  });
 
-    // Now, we grab every article tag, and do the following:
-    $("a.featured-slider-menu__item__link").each(function(i, element) {
+//     "http://www.nytimes.com/", function(error, response, html) {
+//     // Then, we load that into cheerio and save it to $ for a shorthand selector
+//     // var $ = cheerio.load(html);
+
+//     // Now, we grab every article tag, and do the following:
+//     $("a.featured-slider-menu__item__link").each(function(i, element) {
 
       // Save an empty result object
       var result = {};
